@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Elite Home Repairs & Decor - Professional home repairs and decoration services in Lagos, Nigeria.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Elite Home Repairs">
+
+  <title>Elite Home Repairs & Decor</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #F8F9FA;
+    }
+    .loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #1A5F7A 0%, #0D3B4C 100%);
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    .loading.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .loading-icon {
+      width: 80px;
+      height: 80px;
+      border: 4px solid rgba(255,255,255,0.2);
+      border-top-color: #E8A838;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    .loading-text {
+      margin-top: 24px;
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .loading-subtext {
+      margin-top: 8px;
+      color: rgba(255,255,255,0.7);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 14px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading" class="loading">
+    <div class="loading-icon"></div>
+    <div class="loading-text">Elite Home Repairs</div>
+    <div class="loading-subtext">Loading your experience...</div>
+  </div>
+
+  <script src="flutter.js" defer></script>
+  <script>
+    window.addEventListener('load', function(ev) {
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        },
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine().then(function(appRunner) {
+            appRunner.runApp();
+            setTimeout(function() {
+              document.getElementById('loading').classList.add('hidden');
+            }, 500);
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
